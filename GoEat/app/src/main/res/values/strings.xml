@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <!-- Facebook application ID and custom URL scheme (app ID prefixed by 'fb'). -->
+    <string name="facebook_application_id" translatable="false">422013168731591</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb422013168731591</string>
+    <string name="title_activity_home">Home</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="sign_out_message">Thanks for using our service !</string>
+    <string name="sign_in_failed">Login failed!. Try different login method</string>
+    <string name="welcome_msg">Hope you are doing great</string>
+    <string name="title_account">Account</string>
+    <string name="schedule_appointment">Schedule My Delicious Dish</string>
+    <string name="schedule_confirm">You would get instant confirmation</string>
+    <string name="hotel_name">Hotel Name</string>
+    <string name="hotel_desc">Hotel Desc</string>
+    <string name="upcoming">Up coming</string>
+    <string name="time">Thu, 24, 2:00 PM</string>
+    <string name="log_out">Logout</string>
+</resources>
