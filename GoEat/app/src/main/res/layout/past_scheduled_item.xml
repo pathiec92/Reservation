@@ -28,13 +28,15 @@
                 app:srcCompat="@drawable/tickmark" />
 
             <TextView
-                android:id="@+id/hotelName"
+                android:id="@+id/dishName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:ellipsize="end"
                 android:fontFamily="@font/c_bold"
+                android:textColor="@color/black"
+                android:textSize="20sp"
                 android:maxLines="1"
                 android:text="@string/hotel_name"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -42,17 +44,18 @@
                 app:layout_constraintTop_toTopOf="@+id/hotelImg" />
 
             <TextView
-                android:id="@+id/hotelDesc"
+                android:id="@+id/hotelName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:text="@string/hotel_desc"
-                app:layout_constraintEnd_toEndOf="@+id/hotelName"
+                android:fontFamily="@font/c_medium"
+                app:layout_constraintEnd_toEndOf="@+id/dishName"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/hotelName"
-                app:layout_constraintTop_toBottomOf="@+id/hotelName" />
+                app:layout_constraintStart_toStartOf="@+id/dishName"
+                app:layout_constraintTop_toBottomOf="@+id/dishName" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/dateChip"
@@ -61,12 +64,13 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/time"
+                android:fontFamily="@font/c_medium"
                 app:chipIcon="@drawable/schedule"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/hotelDesc"
+                app:layout_constraintEnd_toEndOf="@+id/hotelName"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/hotelDesc"
-                app:layout_constraintTop_toBottomOf="@+id/hotelDesc" />
+                app:layout_constraintStart_toStartOf="@+id/hotelName"
+                app:layout_constraintTop_toBottomOf="@+id/hotelName" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gradeRow"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    >
+    <TextView
+        android:layout_weight="1"
+        android:id="@+id/courseCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/c_medium"
+        android:maxLines="1"
+        android:text="@string/course_code"
+        android:textColor="@color/brown_dark"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_weight="1"
+        android:id="@+id/grade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/c_medium"
+        android:maxLines="1"
+        android:text="@string/grade"
+        android:textColor="@color/brown_dark"
+        android:textSize="16sp"
+        />
+
+</LinearLayout>
+</layout>

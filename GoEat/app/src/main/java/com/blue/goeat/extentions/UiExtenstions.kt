@@ -21,6 +21,9 @@ fun Context.showToast(@StringRes msgId:Int){
     val msg = this.getString(msgId)
     Toast.makeText(this, msg,  Toast.LENGTH_SHORT).show()
 }
+fun Context.showToast( msg:String){
+    Toast.makeText(this, msg,  Toast.LENGTH_SHORT).show()
+}
 
 fun ImageView.loadImage(uri:Uri){
     Picasso.get()
@@ -36,9 +39,13 @@ fun ImageView.loadImageForUri(resId: Int) {
 }
 
 fun ImageView.loadImageUrl(url: String) {
-    Picasso.get()
-        .load(url).placeholder(R.drawable.hotel_2)
-        .into(this)
+    when{
+        url.isNotBlank() ->  Picasso.get()
+            .load(url).placeholder(R.drawable.hotel_2)
+            .into(this)
+        else -> println("Image Url shoudn't be empty")
+    }
+
 }
 fun Context.getUriForDrawable(resourceId:Int):Uri {
     val resources = this.resources

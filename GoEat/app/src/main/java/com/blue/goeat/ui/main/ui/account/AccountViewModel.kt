@@ -15,7 +15,11 @@ class AccountViewModel : ViewModel() {
 
     var userName = "Default"
     var userEmail = "email: $userName"
-    var uri:Uri? = null
+    var resourceScheme = "res"
+    var uri = Uri.Builder()
+        .scheme(resourceScheme)
+        .path(com.blue.goeat.R.drawable.avatar.toString())
+        .build()
 
     fun updateView(){
         UserContext.context?.apply{

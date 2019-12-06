@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">SmartCertificate</string>
+    <string name="title_home">SmartCert Verifier</string>
+    <string name="title_dashboard">Marks Card</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="cert_desc">Student Certificate</string>
+    <string name="student_name">Student Name</string>
+    <string name="lb_student_name">Student : </string>
+    <string name="lb_reg_num">Register No. : </string>
+    <string name="student_desc">This certificate is digitally verified and authenticated</string>
+    <string name="course_name">Course Name</string>
+    <string name="lb_course_name">Course : </string>
+    <string name="rank_on_cert">First Rank</string>
+    <string name="day_on_cert">2018</string>
+    <string name="college_name">College : </string>
+    <string name="lb_sem">Second Semester</string>
+    <string name="lb_ygpa">YGPA : </string>
+    <string name="lb_year">Year : 2015</string>
+    <string name="lb_cgpa">CGPA :</string>
+    <string name="lb_cgpa_value">8.56</string>
+    <string name="lb_rank">Rank :</string>
+    <string name="course_code">Course Code</string>
+    <string name="grade">Grade</string>
+
+    <string name="message_tag_detected">NFC Tag Detected !</string>
+    <string name="message_read_tag">Tap Here To Verify Smart Certificate</string>
+    <string name="message_write_tag">Write to NFC Tag</string>
+    <string name="message_tap_tag">Tap the NFC Tag to your device !</string>
+    <string name="hint_message">Message</string>
+</resources>

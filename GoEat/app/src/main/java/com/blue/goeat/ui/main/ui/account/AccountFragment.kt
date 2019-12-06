@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.blue.goeat.databinding.FragmentAccountBinding
 import com.blue.goeat.extentions.signOut
-import com.blue.goeat.ui.main.ui.di.InjectorUtils
+import com.blue.goeat.di.InjectorUtils
 
 class AccountFragment : Fragment() {
 

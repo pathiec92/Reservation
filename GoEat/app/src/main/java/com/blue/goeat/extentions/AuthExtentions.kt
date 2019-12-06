@@ -70,13 +70,13 @@ fun AppCompatActivity.saveUserContext(requestCode: Int, resultCode: Int, data: I
 }
 
 fun saveUserContext(user: FirebaseUser) {
-    Log.d("Main", "user name = ${user?.displayName}")
-    Log.d("Main", "user email = ${user?.email}")
-    Log.d("Main", "user cell = ${user?.phoneNumber}")
-    Log.d("Main", "user uid = ${user?.uid}")
+    Log.d("Main", "user name = ${user.displayName}")
+    Log.d("Main", "user email = ${user.email}")
+    Log.d("Main", "user cell = ${user.phoneNumber}")
+    Log.d("Main", "user uid = ${user.uid}")
     UserContext.context = UsrContext(
-        user?.displayName, user?.email,
-        user?.phoneNumber, user?.photoUrl
+        user.displayName, user.email,
+        user.phoneNumber, user.photoUrl
     )
 }
 

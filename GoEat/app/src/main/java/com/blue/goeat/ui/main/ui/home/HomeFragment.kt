@@ -10,8 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.blue.goeat.R
 import com.blue.goeat.databinding.FragmentHomeBinding
-import com.blue.goeat.ui.main.ui.adapters.HotelAdapter
-import com.blue.goeat.ui.main.ui.di.InjectorUtils
+import com.blue.goeat.ui.main.ui.adapters.DishOrderAdapter
+import com.blue.goeat.di.InjectorUtils
+import com.blue.goeat.ui.main.ui.order.OrderWiz
 
 class HomeFragment : Fragment() {
 
@@ -19,7 +20,7 @@ class HomeFragment : Fragment() {
     private val homeViewModel: HomeViewModel by viewModels {
         InjectorUtils.provideHomeViewModelFactory()
     }
-    var hotelAdapter = HotelAdapter()
+    var dishOderAdapter = DishOrderAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,10 +29,10 @@ class HomeFragment : Fragment() {
     ): View? {
         binding  = FragmentHomeBinding.inflate(inflater, container, false)
         binding.viewModel = homeViewModel
-       // binding.hotelList .apply { addItemDecoration(DividerItemDecoration(this.context,LinearLayoutManager.VERTICAL))  }
-        binding.hotelList.adapter = hotelAdapter
-        homeViewModel.hotels.observe(viewLifecycleOwner){ hotels ->
-            hotelAdapter.submitList(hotels)
+       //binding.dishOrderList .apply { addItemDecoration(DividerItemDecoration(this.context,LinearLayoutManager.VERTICAL))  }
+       binding.dishOrderList.adapter = dishOderAdapter
+        homeViewModel.dishOrder.observe(viewLifecycleOwner){ orders ->
+            dishOderAdapter.submitList(orders)
             showList()
         }
         homeViewModel.updateView()
@@ -39,12 +40,12 @@ class HomeFragment : Fragment() {
         return binding.root
     }
     private fun showList() {
-        binding.hotelList.visibility = View.VISIBLE
-        binding.hotelList.startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.slide_up_slow))
+       binding.dishOrderList.visibility = View.VISIBLE
+       binding.dishOrderList.startAnimation(AnimationUtils.loadAnimation(this.context, R.anim.slide_up_slow))
     }
 
 
     private fun hideList() {
-        binding.hotelList.visibility = View.GONE
+       binding.dishOrderList.visibility = View.GONE
     }
 }

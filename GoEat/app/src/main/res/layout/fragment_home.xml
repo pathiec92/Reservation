@@ -53,7 +53,7 @@
             tools:layout_editor_absoluteX="27dp" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/hotelList"
+            android:id="@+id/dishOrderList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"

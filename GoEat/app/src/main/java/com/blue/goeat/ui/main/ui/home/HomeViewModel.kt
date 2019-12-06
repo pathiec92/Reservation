@@ -2,12 +2,11 @@ package com.blue.goeat.ui.main.ui.home
 
 import android.net.Uri
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.blue.goeat.data.entity.DishOrder
 import com.blue.goeat.data.entity.Hotel
 import com.blue.goeat.extentions.UserContext
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import com.blue.goeat.di.InjectorUtils
 
 
 class HomeViewModel : ViewModel() {
@@ -20,8 +19,9 @@ class HomeViewModel : ViewModel() {
         .scheme(resourceScheme)
         .path(com.blue.goeat.R.drawable.avatar.toString())
         .build()
-    private val _hotels = MutableLiveData<List<Hotel>>()
-    val hotels: LiveData<List<Hotel>> = _hotels
+   // private val _hotels = MutableLiveData<List<Hotel>>()
+    val hotels: LiveData<List<Hotel>> = InjectorUtils.provideAppDb().getHotelDao().getAllHotels()
+    val dishOrder: LiveData<List<DishOrder>> = InjectorUtils.provideAppDb().getOrderDao().getAllOrder()
     fun updateView() {
         UserContext.context?.let {
             println("Updating views")
@@ -31,9 +31,9 @@ class HomeViewModel : ViewModel() {
             }
 
         }
-        val hotelListType = object : TypeToken<ArrayList<Hotel>>() {}.type
-       /* val hotels = Gson().fromJson<ArrayList<Hotel>>(hotelJson,hotelListType)
-        _hotels.value = hotels*/
+       // val hotelListType = object : TypeToken<ArrayList<Hotel>>() {}.type
+       /* val hotels = Gson().fromJson<ArrayList<Hotel>>(hotelJson,hotelListType)*/
+       // _hotels.value = hotels
     }
 
     /*val hotelJson =" \n" +

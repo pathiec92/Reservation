@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Reserve My Dish</string>
 
     <!-- Facebook application ID and custom URL scheme (app ID prefixed by 'fb'). -->
     <string name="facebook_application_id" translatable="false">422013168731591</string>
@@ -12,11 +12,23 @@
     <string name="sign_in_failed">Login failed!. Try different login method</string>
     <string name="welcome_msg">Hope you are doing great</string>
     <string name="title_account">Account</string>
-    <string name="schedule_appointment">Schedule My Delicious Dish</string>
+    <string name="schedule_appointment">Reserve My Dish</string>
     <string name="schedule_confirm">You would get instant confirmation</string>
     <string name="hotel_name">Hotel Name</string>
     <string name="hotel_desc">Hotel Desc</string>
     <string name="upcoming">Up coming</string>
     <string name="time">Thu, 24, 2:00 PM</string>
     <string name="log_out">Logout</string>
+    <string name="which_college">Which College ?</string>
+    <string name="next">Next</string>
+    <string name="which_hotel">Which Hotel ?</string>
+    <string name="done">Done</string>
+    <string name="click_select"><![CDATA[<click to select>]]></string>
+    <string name="what_day">What Day ?</string>
+    <string name="which_session">When You Want ?</string>
+    <string name="which_dish">Your Favorite Dish today ?</string>
+    <string name="reserve_my_dish">Reserve My Dish</string>
+    <string name="thanks_for_order">Thank You! Your order has been placed.</string>
+
+
 </resources>

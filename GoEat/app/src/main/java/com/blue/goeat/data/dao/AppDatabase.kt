@@ -2,11 +2,9 @@ package com.blue.goeat.data.dao
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.blue.goeat.data.entity.College
-import com.blue.goeat.data.entity.Dish
-import com.blue.goeat.data.entity.Hotel
+import com.blue.goeat.data.entity.*
 
-@Database(entities = [College::class, Hotel::class, Dish::class], version = 0)
+@Database(entities = [College::class, Hotel::class, Session::class, Dish::class, DishOrder::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getCollegeDao(): CollegeDao
 
@@ -15,4 +13,6 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun getSessionDao(): SessionDao
 
     abstract fun getDishDao(): DishDao
+
+    abstract fun getOrderDao(): OrderDao
 }
