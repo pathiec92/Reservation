@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SmartCertificate</string>
+    <string name="app_name">SmartCert Verifier</string>
     <string name="title_home">SmartCert Verifier</string>
     <string name="title_dashboard">Marks Card</string>
     <string name="title_notifications">Notifications</string>
@@ -27,4 +27,5 @@
     <string name="message_write_tag">Write to NFC Tag</string>
     <string name="message_tap_tag">Tap the NFC Tag to your device !</string>
     <string name="hint_message">Message</string>
+    <string name="student_date">of this University on %s and that the degree was conferred</string>
 </resources>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.cardview.widget.CardView
         android:layout_margin="8dp"
-        app:cardBackgroundColor="@color/gold_light"
+        app:cardBackgroundColor="@color/purple_light"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -62,13 +62,13 @@
             android:fontFamily="@font/c_bold"
             android:text="@string/lb_cgpa_value"
             android:textAlignment="center"
-            android:textColor="@color/green_dark"
+            android:textColor="@color/black"
             android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <androidx.cardview.widget.CardView
             android:layout_margin="10dp"
-            app:cardBackgroundColor="@color/brown_light_l"
+            app:cardBackgroundColor="@color/royal_blue_light"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"

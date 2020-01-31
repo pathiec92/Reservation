@@ -13,8 +13,10 @@
     <color name="gold_light">#E7C463</color>
     <color name="gold_light_light">#E9D08A</color>
     <color name="gold_light_ll">#E9D08A</color>
-    <color name="royal_blue">#6a0dad</color>
-    <color name="royal_blue_1">#002366</color>
+    <color name="purple">#6a0dad</color>
+    <color name="purple_light">#D3A3F7</color>
+    <color name="royal_blue">#002366</color>
+    <color name="royal_blue_light">#8EB1F1</color>
     <color name="sky_blue">#00CCFF</color>
     <color name="green">#a4c639</color>
     <color name="green_dark">#006400</color>

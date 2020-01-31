@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.college.smartcertificate.ui.dashboard.DashboardViewModel" />
+            type="com.college.smartcertificate.ui.home.HomeViewModel" />
     </data>
 
     <androidx.recyclerview.widget.RecyclerView

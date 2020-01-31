@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.college.smartcertificate">
 
     <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@drawable/ic_smart_cert"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_smart_cert"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.home.PhdHome"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">

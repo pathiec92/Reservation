@@ -81,7 +81,7 @@ class HeaderViewHolder(private val binding: HeaderItemBinding) :
     val rank: TextView = binding.rank
     override fun bind(position: Int) {
         //collegeName.text = studentEntity.colgname
-        courseName.text = studentEntity.CourseLname
+        courseName.text = "${studentEntity.CourseFname} ${studentEntity.CourseMName} ${studentEntity.CourseLname}"
         studentName.text = studentEntity.name
         regNum.text = studentEntity.regno
         rank.text = studentEntity.rANK

@@ -10,9 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import com.blue.goeat.R
 import com.blue.goeat.databinding.FragmentHomeBinding
-import com.blue.goeat.ui.main.ui.adapters.DishOrderAdapter
 import com.blue.goeat.di.InjectorUtils
-import com.blue.goeat.ui.main.ui.order.OrderWiz
+import com.blue.goeat.ui.main.ui.adapters.DishOrderAdapter
 
 class HomeFragment : Fragment() {
 

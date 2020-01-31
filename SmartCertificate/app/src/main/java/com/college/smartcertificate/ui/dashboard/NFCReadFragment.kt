@@ -9,10 +9,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import com.college.smartcertificate.MainActivity
 import com.college.smartcertificate.R
 import com.college.smartcertificate.data.Encryption
+import com.college.smartcertificate.data.Signer.decrypt
 import com.college.smartcertificate.data.StudentData.refreshData
 import com.college.smartcertificate.data.StudentData.studentEntity
 import com.college.smartcertificate.data.StudentEntity
@@ -21,6 +23,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 import java.io.IOException
 import java.lang.Exception
+import kotlin.contracts.contract
 
 class NFCReadFragment : DialogFragment() {
 
@@ -60,10 +63,13 @@ class NFCReadFragment : DialogFragment() {
             ndef.connect()
             val ndefMessage = ndef.ndefMessage
             val message = String(ndefMessage.records[0].payload)
-            val decrypted = Encryption.decrypt(message)
+            val decrypted = decrypt(message)
             Log.d(TAG, "readFromNFC: $decrypted"  )
             ndef.close()
-            refreshData(decrypted)
+            when{
+                decrypted!=null ->  refreshData(decrypted)
+                else -> Toast.makeText(activity,"Data is compromised!!!. Certification Verification failed", Toast.LENGTH_LONG).show()
+            }
             mListener!!.onDialogDismissed()
 
             activity.fragmentManager.beginTransaction().remove(this).commit()

@@ -1,49 +1,17 @@
 package com.college.smartcertificate.data
 
 import com.google.gson.annotations.SerializedName
-import java.lang.Exception
 
-
-var studentIndex = arrayOf(
-    "courseshortname",
-    "regno",
-    "regses",
-    "colg",
-    "colgname",
-    "rollno",
-    "name",
-    "fname",
-    "sgpa1",
-    "year1",
-    "sgpa2",
-    "year2",
-    "ygpa1",
-    "sgpa3",
-    "year3",
-    "sgpa4",
-    "year4",
-    "ygpa2",
-    "sgpa5",
-    "year5",
-    "sgpa6",
-    "year6",
-    "ygpa3",
-    "sgpa7",
-    "year7",
-    "sgpa8",
-    "year8",
-    "ygpa4",
-    "sgpa9",
-    "year9",
-    "sgpa10",
-    "year10",
-    "ygpa5",
-    "result5",
-    "CRS GRP",
-    "DGPA",
-    "RANK"
+data class PhdStudent(
+    var regNo: String = "",
+    var refNo: String = "",
+    var name: String = "",
+    var degree: String = "",
+    var phDConferredDate: String = "",
+    var discipline: String = "",
+    var supervisor: String = "",
+    var coSupervisor: String = ""
 )
-var studentIndecies = studentIndex.indices
 
 data class StudentEntity(
     @SerializedName("courseshortname") var courseshortname: String = "",
@@ -87,23 +55,48 @@ data class YearWise(
 )
 
 object StudentData {
-    var notify:(Boolean)->Unit ={}
-    var refreshed:(()->Int)? ={1}
+    enum class Type {
+        DEGREE,
+        PHD
+    }
+
+    var notify: (Boolean) -> Unit = {}
+    var refreshed: ((Boolean) -> Int)? = { 1 }
+    lateinit var nfcId:String
 
 
     /*var studentEntity:StudentEntity = Gson().fromJson<StudentEntity>(studentJson, StudentEntity::class.java)
     var gradeData = Gson().fromJson<Grade>(gradeJson, Grade::class.java)*/
     var studentEntity: StudentEntity = StudentEntity()
+    var phdStudent: PhdStudent = PhdStudent()
+    var isPhd = false
+    var isRestarted = false
     var gradeData = Grade()
+    lateinit var currentType: Type
     fun refreshData(data: String) {
         val dataArray = data.split("$")
-        if(dataArray.isEmpty() || dataArray.size<40){
-            notify(false)
+        if (dataArray.isEmpty()) {
+            notify(true)
             println("Invalid card detected")
             return
         }
+        //isRestarted = isRestartReq()
+        isRestarted = true
+        isPhd = dataArray.size < 11
+        if (isPhd) {
+            phdStudent = PhdStudent()
+            for ((index, s) in dataArray.withIndex()) {
+                parsePhdData(index, s)
+            }
+        } else {
+            parseDegreeData(dataArray)
+            println("$studentEntity")
+        }
+        notify(false)
+        refreshed?.let { it(isRestarted) }
+    }
 
-        refreshed?.let{it()}
+    private fun parseDegreeData(dataArray: List<String>) {
         studentEntity = StudentEntity()
         studentEntity.yearWise.clear()
         val sem1 = YearWise(sem = "Sem 1")
@@ -206,7 +199,7 @@ object StudentData {
                 37 -> studentEntity.result = s
                 38 -> studentEntity.cRS = s
                 39 -> studentEntity.dGPA = s
-                40 -> studentEntity.rANK =getRank(s)
+                40 -> studentEntity.rANK = getRank(s)
                 41 -> gradeData.sem1 = getSemList(s)
                 42 -> gradeData.sem2 = getSemList(s)
                 43 -> gradeData.sem3 = getSemList(s)
@@ -221,26 +214,53 @@ object StudentData {
 
 
         }
-        println("$studentEntity")
-        notify(true)
     }
 
-    private fun getRank(s: String):String {
-       return try{
-            s.toFloat().toInt().toString()
-        }catch (ex:Exception){
-             "0"
+    private fun parsePhdData(index: Int, s: String) {
+        println("index ${index}, s = $s")
+        when (index) {
+            0 -> phdStudent.regNo = s
+            1 -> phdStudent.refNo = s
+            2 -> phdStudent.name = s
+            3 -> phdStudent.degree = s
+            4 -> phdStudent.discipline = s
+            5 -> phdStudent.supervisor = s
+            6 -> phdStudent.coSupervisor = s
+            7 -> phdStudent.phDConferredDate = s
+
         }
     }
 
-    private fun getSemList(data: String): java.util.ArrayList<Sem> {
-        val semList = ArrayList<Sem>()
-        if (data.isBlank()) return semList
-        for ((index, s) in data.split(":-")[1].split(",").withIndex()) {
-            println("index ${index}, s = $s")
-            val semData = s.split("/")
-            semList.add(Sem(semData[0], semData[1]))
+    private fun isRestartReq(): Boolean {
+        var restartReq = ::currentType.isInitialized
+
+        if (restartReq) {
+            val prvType = currentType
+            currentType = if (isPhd) Type.PHD else Type.DEGREE
+            restartReq = prvType != currentType
+        } else {
+            restartReq = true
         }
-        return semList
+        currentType = if (isPhd) Type.PHD else Type.DEGREE
+        return restartReq
     }
+}
+
+private fun getRank(s: String): String {
+    return try {
+        s.toFloat().toInt().toString()
+    } catch (ex: Exception) {
+        "0"
+    }
+}
+
+private fun getSemList(data: String): java.util.ArrayList<Sem> {
+    val semList = ArrayList<Sem>()
+    if (data.isBlank()) return semList
+    for ((index, s) in data.split(":-")[1].split(",").withIndex()) {
+        println("index ${index}, s = $s")
+        val semData = s.split("/")
+        semList.add(Sem(semData[0], semData[1]))
+    }
+    return semList
 }
