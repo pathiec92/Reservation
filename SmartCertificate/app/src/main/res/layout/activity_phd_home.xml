@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.college.smartcertificate.ui.home.HomeViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:elevation="8dp"
+            app:cardBackgroundColor="@color/purple"
+            app:cardCornerRadius="8dp"
+            android:layout_marginBottom="40dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="0dp"
+                    android:layout_height="600dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="2dp"
+                    android:contentDescription="@string/cert_desc"
+                    android:src="@drawable/phd_cert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/h1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="160dp"
+                    android:fontFamily="@font/g_r"
+                    android:text="Upon the recommendation of the"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+                <TextView
+                    android:id="@+id/h2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/g_r"
+                    android:text="Academic Council"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/h1"
+                    app:layout_constraintStart_toStartOf="@+id/h1"
+                    app:layout_constraintTop_toBottomOf="@+id/h1" />
+
+                <TextView
+                    android:id="@+id/studentCertName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/g_r"
+                    android:text="@{viewModel.phStudentName}"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/h2"
+                    app:layout_constraintStart_toStartOf="@+id/h2"
+                    app:layout_constraintTop_toBottomOf="@+id/h2" />
+
+                <TextView
+                    android:id="@+id/h3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/g_r"
+                    android:text="was admitted to the Degree of"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/studentCertName"
+                    app:layout_constraintStart_toStartOf="@+id/studentCertName"
+                    app:layout_constraintTop_toBottomOf="@+id/studentCertName" />
+
+                <TextView
+                    android:id="@+id/courseOnCert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/g_r"
+                    android:text="@{viewModel.phdDegreeName}"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/h3"
+                    app:layout_constraintStart_toStartOf="@+id/h3"
+                    app:layout_constraintTop_toBottomOf="@+id/h3" />
+
+                <TextView
+                    android:id="@+id/h4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/g_r"
+                    android:text="@{viewModel.phCertDate}"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/courseOnCert"
+                    app:layout_constraintStart_toStartOf="@+id/courseOnCert"
+                    app:layout_constraintTop_toBottomOf="@+id/courseOnCert" />
+
+                <TextView
+                    android:id="@+id/h5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/g_r"
+                    android:text="on him / her with all the rights and privileges thereto appertaining"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/h4"
+                    app:layout_constraintStart_toStartOf="@+id/h4"
+                    app:layout_constraintTop_toBottomOf="@+id/h4" />
+
+                <TextView
+                    android:id="@+id/h6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+
+                    android:fontFamily="@font/g_r"
+                    android:text="In witness whereof the Signature of the Vice- Chancellor of "
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/h5"
+                    app:layout_constraintStart_toStartOf="@+id/h5"
+                    app:layout_constraintTop_toBottomOf="@+id/h5" />
+
+                <TextView
+                    android:id="@+id/h7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/g_r"
+                    android:text="Maulana Abul Kalam Azad University of Technology."
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/h6"
+                    app:layout_constraintStart_toStartOf="@+id/h6"
+                    app:layout_constraintTop_toBottomOf="@+id/h6" />
+
+                <TextView
+                    android:id="@+id/h8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/g_r"
+                    android:text="West Bengal is hereunto attached"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/h7"
+                    app:layout_constraintStart_toStartOf="@+id/h7"
+                    app:layout_constraintTop_toBottomOf="@+id/h7" />
+
+
+                <TextView
+                    android:id="@+id/place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="36dp"
+                    android:layout_marginBottom="80dp"
+                    android:fontFamily="@font/r_regular"
+                    android:text="KolKata, India"
+                    android:textColor="@color/royal_blue"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toStartOf="@+id/h8" />
+
+                <TextView
+                    android:id="@+id/place2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40dp"
+                    android:fontFamily="@font/r_regular"
+                    android:text="12th December 2019"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintStart_toEndOf="@+id/place" />
+
+                <TextView
+                    android:id="@+id/studentDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/r_medium"
+                    android:text="@string/student_desc"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
+</layout>

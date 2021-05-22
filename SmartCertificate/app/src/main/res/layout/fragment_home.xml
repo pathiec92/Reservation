@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.college.smartcertificate.ui.home.HomeViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="2dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/purple"
+            app:cardCornerRadius="8dp"
+            android:layout_marginBottom="40dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="0dp"
+                    android:layout_height="300dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginEnd="4dp"
+                    android:contentDescription="@string/cert_desc"
+                    android:src="@drawable/cert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/studentCertName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="106dp"
+                    android:fontFamily="@font/cert"
+                    android:text="@{viewModel.studentName}"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+
+                <TextView
+                    android:id="@+id/reg1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:fontFamily="@font/cert"
+                    android:text="bearing register no. :"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/regNumOnCert"
+                    app:layout_constraintEnd_toStartOf="@+id/regNumOnCert"
+                    app:layout_constraintTop_toTopOf="@+id/regNumOnCert" />
+
+                <TextView
+                    android:id="@+id/of"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/cert"
+                    android:text="of"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/regNumOnCert"
+                    app:layout_constraintStart_toEndOf="@+id/regNumOnCert"
+                    app:layout_constraintTop_toTopOf="@+id/regNumOnCert" />
+
+                <TextView
+                    android:id="@+id/year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/r_medium"
+                    android:layout_marginStart="4dp"
+                    android:text="2018-2019"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/of"
+                    app:layout_constraintStart_toEndOf="@+id/of"
+                    app:layout_constraintTop_toTopOf="@+id/of"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/regNumOnCert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/r_medium"
+                    android:gravity="center"
+                    android:paddingTop="2dp"
+                    android:text="@{viewModel.regNum}"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/studentCertName"
+                    app:layout_constraintStart_toStartOf="@+id/studentCertName"
+                    app:layout_constraintTop_toBottomOf="@+id/studentCertName" />
+
+                <TextView
+                    android:id="@+id/hasBeen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/r_medium"
+                    android:gravity="center"
+                    android:paddingTop="2dp"
+                    android:text="has been placed"
+                    android:textColor="@color/purple"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/year"
+                    app:layout_constraintStart_toStartOf="@+id/reg1"
+                    app:layout_constraintTop_toBottomOf="@+id/regNumOnCert" />
+
+                <TextView
+                    android:id="@+id/in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:fontFamily="@font/r_medium"
+                    android:gravity="center"
+                    android:paddingTop="2dp"
+                    android:text="in"
+                    android:textColor="@color/purple"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/rankOnCert"
+                    app:layout_constraintEnd_toStartOf="@+id/rankOnCert"
+                    app:layout_constraintTop_toTopOf="@+id/rankOnCert" />
+
+                <TextView
+                    android:id="@+id/in2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:fontFamily="@font/r_medium"
+                    android:gravity="center"
+                    android:paddingTop="2dp"
+                    android:text="in"
+                    android:textColor="@color/purple"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/courseCertName"
+                    app:layout_constraintEnd_toStartOf="@+id/courseCertName"
+                    app:layout_constraintTop_toTopOf="@+id/courseCertName" />
+
+                <TextView
+                    android:id="@+id/position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/r_medium"
+                    android:gravity="center"
+                    android:paddingTop="2dp"
+                    android:text="position"
+                    android:textColor="@color/purple"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/hasBeen"
+                    app:layout_constraintStart_toStartOf="@+id/hasBeen"
+                    app:layout_constraintTop_toBottomOf="@+id/hasBeen" />
+
+                <TextView
+                    android:id="@+id/heldIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="40dp"
+                    android:fontFamily="@font/r_medium"
+                    android:gravity="center"
+                    android:paddingTop="2dp"
+                    android:text="Degree Examination, held in"
+                    android:textColor="@color/purple"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/courseCertName"
+                    app:layout_constraintStart_toEndOf="@+id/in2"
+                    app:layout_constraintTop_toBottomOf="@+id/courseCertName" />
+
+                <TextView
+                    android:id="@+id/underSeal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/r_medium"
+                    android:gravity="center"
+                    android:paddingTop="2dp"
+                    android:text="Given under the seal of University"
+                    android:textColor="@color/purple"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/heldIn"
+                    app:layout_constraintStart_toStartOf="@+id/heldIn"
+                    app:layout_constraintTop_toBottomOf="@+id/heldIn" />
+
+                <TextView
+                    android:id="@+id/place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/r_medium"
+                    android:gravity="center"
+                    android:paddingTop="2dp"
+                    android:text="Kolkata, India"
+                    android:textColor="@color/purple"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toTopOf="@+id/dateOnCert"
+                    app:layout_constraintEnd_toEndOf="@+id/dateOnCert"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/dateOnCert" />
+
+                <TextView
+                    android:id="@+id/courseCertName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/cert"
+                    android:text="@{viewModel.courseName}"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    app:layout_constraintEnd_toEndOf="@+id/position"
+                    app:layout_constraintStart_toStartOf="@+id/position"
+                    app:layout_constraintTop_toBottomOf="@+id/in" />
+
+                <TextView
+                    android:id="@+id/rankOnCert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:fontFamily="@font/cert"
+                    android:text="@{viewModel.rank}"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/position"
+                    app:layout_constraintEnd_toStartOf="@+id/position"
+                    app:layout_constraintTop_toTopOf="@+id/position" />
+
+                <TextView
+                    android:id="@+id/medalOnCert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/cert"
+                    android:text="@{viewModel.medal}"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/position"
+                    app:layout_constraintStart_toEndOf="@+id/position"
+                    app:layout_constraintTop_toTopOf="@+id/position" />
+
+
+                <TextView
+                    android:id="@+id/dayOnCert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/r_medium"
+                    android:paddingTop="2dp"
+                    android:text="2019"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/heldIn"
+                    app:layout_constraintStart_toEndOf="@+id/heldIn"
+                    app:layout_constraintTop_toTopOf="@+id/heldIn" />
+
+                <TextView
+                    android:id="@+id/dateOnCert"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="38dp"
+                    android:fontFamily="@font/r_medium"
+                    android:text="12th December 2019"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintEnd_toStartOf="@+id/underSeal" />
+
+                <TextView
+                    android:id="@+id/studentDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="80dp"
+                    android:fontFamily="@font/r_medium"
+                    android:text="@string/student_desc"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+    </ScrollView>
+</layout>
